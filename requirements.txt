@@ -1,5 +1,10 @@
 torch==1.9.0
+transformers==4.9.0
 torchvision==0.10.0
 numpy==1.21.0
 matplotlib==3.4.2
-scikit-image==0.18.2
+scikit-learn==0.24.2
+requests==2.25.1
+beautifulsoup4==4.9.3
+datasets==1.11.0
+rouge_score==0.0.4
