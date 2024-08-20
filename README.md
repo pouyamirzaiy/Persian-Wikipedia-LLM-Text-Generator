@@ -1,73 +1,104 @@
-# Wine Quality Prediction using Multilayer Perceptron (MLP)
-
-## Overview
-
-This project aims to categorize wines based on their physicochemical attributes using a Multilayer Perceptron (MLP) implemented from scratch with NumPy. The Wine Quality Dataset, which includes various characteristics of wine samples and their quality ratings, is used for this purpose.
+# Autoencoder Reconstruction of Mixed MNIST and CIFAR-10 Images
 
 ## Table of Contents
 
-1. [Project Description](#project-description)
-2. [Dataset Description](#dataset-description)
-3. [Tasks](#tasks)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Contributing](#contributing)
-7. [License](#license)
+- [Introduction](#introduction)
+- [Dataset Description](#dataset-description)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Results](#results)
+- [Conclusion](#conclusion)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Contact Information](#contact-information)
 
-## Project Description
+## Introduction
 
-In this project, we implement a basic MLP to predict the quality of red wine based on its physicochemical properties. The project involves data loading, preprocessing, model implementation, training, evaluation, and analysis.
+In this project, we explore the use of autoencoders, a fundamental technique in deep learning, to reconstruct images from two distinct datasets: MNIST and CIFAR-10. The objective is to create an autoencoder model capable of taking the mean of an MNIST and a CIFAR-10 image, feeding it into the model, and generating reconstructions of both MNIST and CIFAR-10 images.
 
 ## Dataset Description
 
-The Wine Quality Dataset contains two sets of data: one for red wine and another for white wine. Each dataset includes several physicochemical attributes of wine samples, such as acidity, pH, and alcohol content, along with a quality rating. This project focuses on the red wine dataset.
+- **MNIST**: A dataset of handwritten digits with grayscale images of size 28x28 pixels.
+- **CIFAR-10**: A dataset of 60,000 32x32 color images in 10 classes, with 6,000 images per class.
 
-Attributes:
+## Project Structure
 
-- Fixed acidity
-- Volatile acidity
-- Citric acid
-- Residual sugar
-- Chlorides
-- Free sulfur dioxide
-- Total sulfur dioxide
-- Density
-- pH
-- Sulphates
-- Alcohol
-- Quality (score between 0 and 10)
-
-## Tasks
-
-1. **Data Loading:** Load the red wine dataset using NumPy.
-2. **Data Preprocessing:** Perform necessary preprocessing steps, such as normalization or standardization, and split the dataset into training and testing sets.
-3. **Model Implementation:** Implement a Multilayer Perceptron (MLP) from scratch using only NumPy.
-4. **Training:** Train the MLP model using the training data and implement the backpropagation algorithm.
-5. **Evaluation:** Evaluate the model's performance using the testing data and calculate relevant metrics.
-6. **Analysis:** Analyze the results and discuss observations or insights.
-7. **Activation Functions:** Choose 10 different types of activation functions, plot their distributions, and their derivatives.
+```
+.
+├── SRC
+│   └── dual_decoder_autoencoder.py
+├── Notebook
+│   └── autoencoder_training.ipynb
+├── requirements.txt
+├── README.md
+├── Results
+│   ├── reconstructed_mnist.png
+│   └── reconstructed_cifar.png
+```
 
 ## Installation
 
-To install the necessary packages, run the following commands:
-
-```bash
-pip install numpy pandas matplotlib seaborn
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/autoencoder-reconstruction.git
+   cd autoencoder-reconstruction
+   ```
+2. Install the required packages:
+   ```bash
+   pip install -r Requirements/requirements.txt
+   ```
 
 ## Usage
 
-To run the project, follow these steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/medical-appointment-no-shows.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd medical-appointment-no-shows
+   ```
+3. Run the Jupyter notebook or Python script to preprocess the data, train the model, and evaluate its performance.
 
-1. Load the dataset and perform data preprocessing.
-2. Implement and train the MLP model.
-3. Evaluate the model's performance and analyze the results.
-4. Plot the activation functions and their derivatives.
+## Results
 
-## Contributing
+### Implementation of MLP Model using PyTorch
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+The implementation of the Multi-Layer Perceptron (MLP) model was done using PyTorch, a popular open-source machine learning library. The model was designed with an input layer, multiple hidden layers, and an output layer.
+
+#### Model Architecture
+
+The model architecture is as follows:
+
+- **Input Size**: The input size is equal to the number of features in the dataset, which is determined by the number of inputs.
+- **Hidden Size**: The hidden size, which is the number of neurons in the hidden layer, was set to 128. This can be adjusted as needed.
+- **Output Size**: The output size is 1, corresponding to our binary classification problem.
+- **Number of Hidden Layers**: The model was designed with 2 hidden layers.
+- **Loss Function and Optimizer**: The model uses Mean Squared Error (MSE) as the loss function and Adam as the optimizer.
+
+### Evaluation Metrics
+
+The quality of the reconstructions was evaluated using the structural similarity index (SSIM) and peak signal-to-noise ratio (PSNR). The SSIM values for the MNIST and CIFAR-10 reconstructions were 0.9380 and 0.2776, respectively, indicating that the model was able to reconstruct the MNIST images with high similarity but had more difficulty with the CIFAR-10 images. The PSNR values for the MNIST and CIFAR-10 reconstructions were 27.45 dB and 20.15 dB, respectively, suggesting that the model was able to reconstruct the MNIST images with less error than the CIFAR-10 images.
+
+- **SSIM (MNIST)**: 0.9380
+- **SSIM (CIFAR-10)**: 0.2776
+- **PSNR (MNIST)**: 27.45 dB
+- **PSNR (CIFAR-10)**: 20.15 dB
+
+## Conclusion
+
+This project demonstrates the capability of autoencoders to reconstruct images from mixed datasets. The results show that the model can effectively learn to reconstruct both MNIST and CIFAR-10 images from their mean.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- The PyTorch team for their excellent deep learning library.
+- The authors of the MNIST and CIFAR-10 datasets.
+
+## Contact Information
+
+For any questions or inquiries, please contact pouya.8226@gmail.com.
